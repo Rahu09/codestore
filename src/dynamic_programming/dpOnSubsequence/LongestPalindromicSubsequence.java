@@ -13,9 +13,7 @@ public class LongestPalindromicSubsequence {
         String rr = r.toString();
         int l = s.length();
         int dp[][]=new int[l][l];
-        for(int rows[]: dp)
-            Arrays.fill(rows,-1);
-
+        for(int rows[]: dp) Arrays.fill(rows,-1);
         return lcsUtil(s, rr, l-1, l-1, dp);
     }
     static int lcsUtil(String s1, String s2, int ind1, int ind2, int[][] dp){
