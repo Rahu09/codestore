@@ -4,29 +4,33 @@ import java.util.HashMap;
 import java.util.List;
 
 public class wiey {
-    public static void main(String[] args) {
-        List<Integer> arr = new ArrayList<>();
-        arr.add(60);
-        arr.add(60);
-        arr.add(60);
-        System.out.println(countPairs(arr));
-    }
-    public static long countPairs(List<Integer> durations) {
-        HashMap<Integer, Integer> counts = new HashMap<>();
-        int numPairs = 0;
-        for (int i = 0; i < durations.size(); i++) {
+    public static int getMinSubsequences(String str) {
+        int i = 0;
 
-            int d = durations.get(i);
-            int modD = d % 60;
-            int complement = (60 - modD) % 60;
-            if (counts.containsKey(complement)) {
-                numPairs += counts.get(complement);
+        String tem = "";
+        ArrayList<String> pool = new ArrayList<>();
+        while (i < str.length()) {
+            if((i!=0 && str.charAt(i)== str.charAt(i-1))){
+                String n = tem;
+                pool.add(n);
+                tem="";
             }
-//            counts.put(modD, counts.getOrDefault(modD, 0) + 1);
-            if(counts.containsKey(modD))
-                counts.put(modD,counts.get(modD)+1);
-            else counts.put(modD,1);
+            tem += str.charAt(i);
+            i++;
         }
-        return numPairs;
+        if(tem!="") pool.add(tem);
+        if (pool.size() == 3) {
+            Character s1 = pool.get(0).charAt(pool.get(0).length()-1);
+            Character s2 = pool.get(2).charAt(0);
+            if(s1!= s2) return 2;
+            else return 3;
+        }
+        else return pool.size();
+    }
+
+    public static void main(String[] args) {
+        String str = "11001010";
+        int result = getMinSubsequences(str);
+        System.out.println(result);  // Output: 3
     }
 }
