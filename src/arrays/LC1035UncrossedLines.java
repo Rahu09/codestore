@@ -11,6 +11,7 @@ public class LC1035UncrossedLines {
         // comment fo teesting
         System.out.println(ans);
     }
+//    now gonna start coding everyday for git  pushes
     public static int rec(int[] num1, int[] num2, int i, int j, int max){
         if(i >= num1.length) return max;
 
