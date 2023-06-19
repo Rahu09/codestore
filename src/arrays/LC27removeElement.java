@@ -9,6 +9,7 @@ public class LC27removeElement {
 //        System.out.println(removeElement(nums, val));
         int x = 100000;
     }
+    //running program needed dp update
     public static int removeElement(int[] nums, int val) {
         int start = 0;
         int end = nums.length-1;
