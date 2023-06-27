@@ -1,2 +1,2 @@
 # codestore
-all code that I will do
+All the code that I will do.
